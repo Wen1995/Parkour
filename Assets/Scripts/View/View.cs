@@ -6,10 +6,11 @@ public class View : MonoSingleton<View> {
     Dictionary<string, PanelBase> panelMap;
     Dictionary<string, string> panelPathMap;
 
-    public override void Initialize()
+    
+    public void Initialize()
     {
-        base.Initialize();
-
+        //TODO
+        //加载资源路径
     }
 
     public void RegisterPanel()

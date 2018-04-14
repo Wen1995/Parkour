@@ -13,17 +13,12 @@ where T:MonoBehaviour{
         {
             if (mInstance == null)
             {
-                Debug.Log("you need to instantiate a singleton class mannuly(by calling class.Initialize)");
+                GameObject go = new GameObject(typeof(T).Name);
+                mInstance = go.AddComponent<T>();
+                DontDestroyOnLoad(go);
                 return null;
             }
             return mInstance;
         }
-    }
-
-    public virtual void Initialize()
-    {
-        GameObject go = new GameObject(typeof(T).Name);
-        mInstance = go.AddComponent<T>();
-        DontDestroyOnLoad(go);
     }
 }

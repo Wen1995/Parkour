@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PanelBase : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected void RegisterPanel(string name, EventCallBack callback)
+    { }
+
+    protected void RemovePanel(string name, EventCallBack callback)
+    { }
+
+    protected void OpenPanel()
+    { }
+
+    protected void ClosePanel()
+    { }
 }

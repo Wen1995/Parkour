@@ -2,24 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void EventCallBack(Object data = null);
+
 public class Controller : MonoSingleton<Controller> {
 
-    Dictionary<string, Command> commandMap = new Dictionary<string, Command>();
-    Dictionary<string, string> observerMap = new Dictionary<string, string>();
-
-    public void RegisterCommand(string name, Command command)
+    Dictionary<string, EventCallBack> eventMap = new Dictionary<string, EventCallBack>();
+    public void Initialize()
     {
-        if (commandMap.ContainsKey(name))
-        {
-            Debug.Log("this command has been registered");
-            return;
-        }
-        commandMap.Add(name, command);
-
+        //TODO
     }
 
-    public void RemoveCommand()
+    public void RegisterEvent(string eventName, EventCallBack callback)
     {
+        if (eventMap.ContainsKey(eventName))
+            eventMap[eventName] += callback;
+        else
+            eventMap[eventName] = new EventCallBack(callback);
+    }
 
+    public void RemoveEvent(string eventName, EventCallBack callback)
+    {
+        if (eventMap.ContainsKey(eventName))
+            eventMap[eventName] -= callback;
+        else
+            Debug.Log("Event Delegate Is Empty");
+    }
+
+    public void SendEvent(string eventName)
+    {
+        if (eventMap.ContainsKey(eventName))
+            eventMap[eventName]();
+        else
+            Debug.Log("Event Delegate Is Empty");
     }
 }
