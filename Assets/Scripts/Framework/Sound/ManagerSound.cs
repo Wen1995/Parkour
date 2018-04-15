@@ -2,23 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManagerSound : MonoBehaviour {
+public class ManagerSound : MonoSingleton<ManagerSound> {
 
     AudioSource mSourceBG;
     AudioSource mSourceEffect;
     Dictionary<string, AudioClip> mClipMap;
 
-    ManagerSound mInstance = null;                      //Singletom Ref
-
-    public ManagerSound Instance
-    {
-        get
-        {
-            return mInstance;
-        }
-    }
-
-    public void Initialized()
+    public void Initialize()
     {
 
         //TODO

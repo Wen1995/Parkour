@@ -3,26 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //对象池Manager，采用单例模式
-public class ManagerObjectPool : MonoBehaviour {
+public class ManagerObjectPool : MonoSingleton<ManagerObjectPool> {
 
     Dictionary<string, string> mDirMap = new Dictionary<string, string>();
     Dictionary<string, SubPool> mPoolMap = new Dictionary<string, SubPool>();
-    ManagerObjectPool mInstance = null;                    //Singleton Ref
-
-    public ManagerObjectPool Instance
-    {
-        get
-        {
-            return mInstance;
-        }
-    }
 
     /// <summary>
     /// 初始化对象池Manager,实例化单例
     /// </summary>
     public void Initialize()
     {
-        if (mInstance != null)
+        if (Instance != null)
             return;
         //TODO
         //1.实例化单例对象

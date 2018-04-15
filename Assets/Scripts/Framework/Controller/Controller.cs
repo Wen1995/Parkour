@@ -28,10 +28,10 @@ public class Controller : MonoSingleton<Controller> {
             Debug.Log("Event Delegate Is Empty");
     }
 
-    public void SendEvent(string eventName)
+    public void ExecuteEvent(string eventName, Object data = null)
     {
         if (eventMap.ContainsKey(eventName))
-            eventMap[eventName]();
+            eventMap[eventName](data);
         else
             Debug.Log("Event Delegate Is Empty");
     }

@@ -7,14 +7,24 @@ public class Facade : MonoSingleton<Facade> {
     Controller mController;
     View mView;
     Model mModel;
+
     public void Initialize()
     {
-        //初始化Model， View， Controller三个单例类
+        //初始化MVC三大类
 
-        //初始化三大类
+        
     }
 
-    //view------------------------------------------------
+    //scene
+    public void EnterScene(string name)
+    {
+        
+    }
+
+    void ClearBeforeLoadingScene()
+    {
+    }
+    //ui view------------------------------------------------
     public void RegisterPanel()
     { }
 
@@ -38,11 +48,15 @@ public class Facade : MonoSingleton<Facade> {
         mController.RemoveEvent(eventName, callback);
     }
 
-    public void SendEvent(string eventName)
+    public void SendEvent(string eventName, Object data)
     {
-        mController.SendEvent(eventName);
+        mController.ExecuteEvent(eventName, data);
     }
     //model------------------------------------------------
 
-
+    //public T RetrieveModel<T>(string name)
+    //    where T : Model
+    //{
+       
+    //}
 }

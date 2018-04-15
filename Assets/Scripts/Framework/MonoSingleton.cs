@@ -13,12 +13,16 @@ where T:MonoBehaviour{
         {
             if (mInstance == null)
             {
-                GameObject go = new GameObject(typeof(T).Name);
-                mInstance = go.AddComponent<T>();
-                DontDestroyOnLoad(go);
-                return null;
+                InitializeSingleton();
             }
             return mInstance;
         }
+    }
+
+    public static void InitializeSingleton()
+    {
+        GameObject go = new GameObject(typeof(T).Name);
+        mInstance = go.AddComponent<T>();
+        DontDestroyOnLoad(go);
     }
 }
