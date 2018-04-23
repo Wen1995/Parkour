@@ -282,9 +282,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Application\Command\CommandEnterSceneLobby.cs" />
     <Compile Include="Assets\Scripts\Application\ConstVal.cs" />
     <Compile Include="Assets\Scripts\Application\Main.cs" />
     <Compile Include="Assets\Scripts\Application\UI\PanelBase.cs" />
+    <Compile Include="Assets\Scripts\Framework\Controller\Command.cs" />
     <Compile Include="Assets\Scripts\Framework\Controller\Controller.cs" />
     <Compile Include="Assets\Scripts\Framework\Facade.cs" />
     <Compile Include="Assets\Scripts\Framework\Model\Model.cs" />

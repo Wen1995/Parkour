@@ -8,7 +8,12 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        // Initialize Singletom Class
         Facade.InitializeSingleton();
-	}
+        ManagerScene.InitializeSingleton();
+        
+
+        ManagerScene.Instance.EnterScene(ConstVal.Scene_Lobby);
+    }
 	
 }

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PanelBase : MonoBehaviour {
 
-    protected void RegisterPanel(string name, EventCallBack callback)
-    { }
-
-    protected void RemovePanel(string name, EventCallBack callback)
+    protected void Initialize()
     { }
 
     protected void OpenPanel()

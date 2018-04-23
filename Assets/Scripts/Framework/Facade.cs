@@ -18,7 +18,11 @@ public class Facade : MonoSingleton<Facade> {
     //scene
     public void EnterScene(string name)
     {
-        
+        Controller.InitializeSingleton();
+        mController = Controller.Instance;
+        View.InitializeSingleton();
+        mView = View.Instance;
+        //model
     }
 
     void ClearBeforeLoadingScene()
@@ -51,6 +55,11 @@ public class Facade : MonoSingleton<Facade> {
     public void SendEvent(string eventName, Object data)
     {
         mController.ExecuteEvent(eventName, data);
+    }
+
+    public void SendCommand(string name)
+    {
+        mController.ExecuteCommand(name);
     }
     //model------------------------------------------------
 
