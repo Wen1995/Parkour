@@ -11,18 +11,19 @@ where T:MonoBehaviour{
     {
         get
         {
-            if (mInstance == null)
-            {
-                InitializeSingleton();
-            }
             return mInstance;
         }
     }
 
     public static void InitializeSingleton()
     {
+        if (Instance != null)
+        {
+            Debug.Log("SingleTon has been initialized");
+        }
         GameObject go = new GameObject(typeof(T).Name);
         mInstance = go.AddComponent<T>();
         DontDestroyOnLoad(go);
+        go.SendMessage("Initialize",SendMessageOptions.DontRequireReceiver);
     }
 }

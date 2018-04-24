@@ -11,23 +11,12 @@ public class Facade : MonoSingleton<Facade> {
     public void Initialize()
     {
         //初始化MVC三大类
-
-        
-    }
-
-    //scene
-    public void EnterScene(string name)
-    {
         Controller.InitializeSingleton();
         mController = Controller.Instance;
         View.InitializeSingleton();
         mView = View.Instance;
-        //model
     }
 
-    void ClearBeforeLoadingScene()
-    {
-    }
     //ui view------------------------------------------------
     public void RegisterPanel()
     { }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class View : MonoSingleton<View> {
+public class View : MonoSingleton<View> {
 
 
     Dictionary<string, PanelBase> mPanelMap = new Dictionary<string, PanelBase>();
@@ -18,5 +18,5 @@ public abstract class View : MonoSingleton<View> {
         //TODO
     }
 
-    //
+    //panel
 }
